@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.render('pad')
 });
 
-app.get('/():id)', (req, res) => {
+app.get('/:id', (req, res) => {
     res.render('pad');
 });
 

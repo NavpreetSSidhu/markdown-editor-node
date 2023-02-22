@@ -6,7 +6,7 @@ window.onload = function() {
     let markdownArea = document.getElementById('markdown');
 
     pad.addEventListener('keydown', function(e) {
-        if(e.key === 'Tab') {
+        if(e.key === 'tab') {
             let start = this.selectionStart;
             let end = this.selectionEnd;
             
@@ -21,7 +21,7 @@ window.onload = function() {
 
             e.preventDefault();
         }
-    })
+    });
 
     let previousMarkdownValue;
 
@@ -37,14 +37,16 @@ window.onload = function() {
             return true;
         }
         return false;
-    }
+    };
 
     setInterval(() => {
         if(didChangeOccur()) {
             convertTextAreaToMarkdown();
         }
     }, 1000);
-
+    
+    pad.addEventListener('input', convertTextAreaToMarkdown);
+    
     if(document.location.pathname.length > 1){
         let documentName = document.location.pathname
         sharejs.open(documentName, 'text', function(error, doc) {
@@ -52,8 +54,6 @@ window.onload = function() {
             convertTextAreaToMarkdown();
         });
     }
-
-    pad.addEventListener('input', convertTextAreaToMarkdown);
 
     convertTextAreaToMarkdown();
 }   

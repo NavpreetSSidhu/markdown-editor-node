@@ -15,6 +15,7 @@
     "redis": "^4.6.4",
     "share": "^0.6.3",
     "sharejs": "^0.1.5",
-    "showdown": "^2.1.0"
+    "showdown": "^2.1.0",
+    "update": "^0.4.2"
   }
 }
